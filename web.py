@@ -14,6 +14,8 @@ def add_todo():
 st.title("My to-do app")
 st.write("Made with ❤️, Neeko")
 
+st.text_input(label=" ", placeholder="Enter a new task...", on_change=add_todo, key='new_todo')
+
 for index, todo in enumerate(todos):
     checkbox = st.checkbox(todo, key=todo)
     if checkbox:
@@ -21,7 +23,5 @@ for index, todo in enumerate(todos):
         functions.write_todos(todos)
         del st.session_state[todo]
         st.experimental_rerun()
-
-st.text_input(label=" ", placeholder="Enter a new task...", on_change=add_todo, key='new_todo')
 
 # st.session_state
